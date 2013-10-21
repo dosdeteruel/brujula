@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "punto.h"
+
 
 
 @interface ViewController ()
@@ -34,10 +34,18 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     
 };
 NSMutableArray *arrayPuntos;
+NSString *nombrezona;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    nombrezona= [defaults stringForKey:@"zona"];
+
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 
     locationManager=[[CLLocationManager alloc] init];
@@ -128,17 +136,6 @@ NSMutableArray *arrayPuntos;
         //  region.span = MKCoordinateSpanMake(0.1, 0.1);
         region.center = location.coordinate;
         
-        miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
-        miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
-     //   miPunto.fecha = [NSNumber numberWithInteger:NSDate date];
-     //   miPunto.dato ="";
-        [arrayPuntos addObject:miPunto];
-        
-        
-        //guardo?? creo que si
-        
-        guardarAPlist miPunto;
-        
         
     }
     NSLog(@"entrando");
@@ -171,6 +168,26 @@ NSMutableArray *arrayPuntos;
             
             //guardar en plist
             
+            
+            
+            miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
+            miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
+            miPunto.zona = nombrezona;
+            
+            //   miPunto.fecha = [NSNumber numberWithInteger:NSDate date];
+            //   miPunto.dato ="";
+            [arrayPuntos addObject:miPunto];
+            
+            
+            //guardo?? creo que si
+            
+            [self guardarAPlist: miPunto];
+            
+            
+            
+            
+            
+            
         case guardaCoche:
             [userDefaults setFloat:location.coordinate.latitude forKey:@"cochelatitud"];
             [userDefaults setFloat:location.coordinate.longitude forKey:@"cochelongitud"];
@@ -178,7 +195,7 @@ NSMutableArray *arrayPuntos;
             [userDefaults synchronize];
             tipoAccion=hacerNada;
               [locationManager stopUpdatingLocation];
-// guardar en plist
+
             
     }
 
@@ -293,5 +310,116 @@ NSMutableArray *arrayPuntos;
     //    CLLocationDistance dist = [loc distanceFromLocation:loc2];
     
     //    NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
+}
+
+
+- (void) guardarAPlist:(punto *)miPunto
+{
+//
+//    NSMutableArray *zonaux = [[NSMutableArray alloc]init];
+//    NSDictionary *plistDictionary;
+    NSData *plistData;
+    NSString *ruta;
+    NSString *pathArray =    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *auxPunto=[[NSArray alloc] initWithObjects:miPunto.x, miPunto.y, miPunto.zona, nil ];
+    
+    ruta= [pathArray stringByAppendingPathComponent:@"zonas.plist"];
+    
+    
+    
+    //tengo el punto a guardar y la zona
+    //si grabo solo un punto....
+    
+    
+
+    
+    
+    NSError *error = [[NSError alloc]init];
+    
+    
+    plistData = [NSPropertyListSerialization dataWithPropertyList:auxPunto format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
+    
+    
+    if (plistData)
+    {
+        [plistData writeToFile:ruta atomically:YES];
+    }
+    
+
+
+}
+
+
+- (NSMutableArray *) leerDePlist
+{
+//puedo sacar solo las zonas
+    // puedo saar los puntos de una zona
+    int i;
+    i=0;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"zonas" ofType:@"plist"];
+    NSMutableArray *arrayzonas =[[NSMutableArray alloc] init];
+    NSMutableArray *arraynombrezonas =[[NSMutableArray alloc] init];
+    
+    
+    //Creamos un array con el contenido del fichero
+    
+    NSArray *arrayConDatos = [[NSArray alloc] initWithContentsOfFile:path];
+    
+    for (; i < arrayConDatos.count; i++)
+    {
+    
+        [arrayzonas addObject: [arrayConDatos objectAtIndex:i]];
+      //  NSLog(@"elemento - %d en myArray: %@", i, element);
+	      [arraynombrezonas addObject:[arrayzonas objectAtIndex:2]];
+        
+    }
+    
+    
+    return arraynombrezonas;
+   
+}
+
+
+
+- (NSMutableArray *) leerDePlistunaZona: (NSString *) nombrezona
+{
+
+    
+    int i;
+    i=0;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"zonas" ofType:@"plist"];
+    NSMutableArray *arrayzonas =[[NSMutableArray alloc] init];
+    NSMutableArray *arraypuntoszonas =[[NSMutableArray alloc] init];
+    
+    
+    //Creamos un array con el contenido del fichero
+    
+    NSArray *arrayConDatos = [[NSArray alloc] initWithContentsOfFile:path];
+    
+    for (; i < arrayConDatos.count; i++)
+    {
+        
+        [arrayzonas addObject: [arrayConDatos objectAtIndex:i]];
+        //  NSLog(@"elemento - %d en myArray: %@", i, element);
+        
+        
+         if ([arrayzonas objectAtIndex:2]== nombrezona)
+               {
+                  [arraypuntoszonas addObject: [arrayzonas objectAtIndex:i]];
+                 }
+   
+        
+        
+    }
+    
+    
+    return arraypuntoszonas;
+    
+    
+    
+
+
 }
 @end

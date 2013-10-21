@@ -15,6 +15,8 @@
     NSNUmber *y;
     NSNumber *fecha;
     NSString *dato;
+    NSString *zona;
+    
 }
 
 
@@ -22,5 +24,7 @@
 @property (nonatomic, retain) NSNumber *y;
 @property (nonatomic, retain) NSNumber *fecha;
 @property (nonatomic, retain) NSString *dato;
+@property (nonatomic, retain) NSString *zona;
+
 
 @end

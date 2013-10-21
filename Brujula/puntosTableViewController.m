@@ -12,6 +12,9 @@
 
 @end
 
+NSMutableArray *zonasMutableArray;
+
+
 @implementation puntosTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -117,5 +120,48 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+- (void) añadirZona
+{
+//añado una nueva zona, tanto en tableview como lo guardo en nsdefaults
+    
+
+}
+- (void) cargardePlist
+{
+
+    
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+   
+    zonasMutableArray = [[NSMutableArray alloc]init];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    
+    
+    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
+    
+    NSLog(@"%@",fooPath);
+    
+    zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
+    
+    NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
+    
+  
+     
+    
+
+}
+
 
 @end
