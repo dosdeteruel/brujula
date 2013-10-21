@@ -11,6 +11,7 @@
 		2D337D9617F5F62800705669 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D337D9517F5F62800705669 /* Storyboard.storyboard */; };
 		2D337D9817F5F80400705669 /* coche-respetuoso-del-medio-ambiente-en-un-campo-verde-12647007.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D337D9717F5F80400705669 /* coche-respetuoso-del-medio-ambiente-en-un-campo-verde-12647007.jpg */; };
 		2D337D9F17F5FC5F00705669 /* pantallaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D337D9E17F5FC5F00705669 /* pantallaViewController.m */; };
+		2D8992431814EA5600889349 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8992421814EA5600889349 /* punto.m */; };
 		2DB4312517EB788B004384C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB4312417EB788A004384C8 /* UIKit.framework */; };
 		2DB4312717EB788B004384C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB4312617EB788B004384C8 /* Foundation.framework */; };
 		2DB4312917EB788B004384C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB4312817EB788B004384C8 /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 		2D337D9917F5F8A000705669 /* Brujula.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Brujula.entitlements; sourceTree = "<group>"; };
 		2D337D9D17F5FC5F00705669 /* pantallaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pantallaViewController.h; sourceTree = "<group>"; };
 		2D337D9E17F5FC5F00705669 /* pantallaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pantallaViewController.m; sourceTree = "<group>"; };
+		2D8992411814EA5600889349 /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = punto.h; sourceTree = "<group>"; };
+		2D8992421814EA5600889349 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = punto.m; sourceTree = "<group>"; };
 		2DB4312117EB788A004384C8 /* Brujula.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brujula.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB4312417EB788A004384C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2DB4312617EB788B004384C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,9 +95,19 @@
 			name = pantallaViewController;
 			sourceTree = "<group>";
 		};
+		2D8992441814EA5D00889349 /* clasepunto */ = {
+			isa = PBXGroup;
+			children = (
+				2D8992411814EA5600889349 /* punto.h */,
+				2D8992421814EA5600889349 /* punto.m */,
+			);
+			name = clasepunto;
+			sourceTree = "<group>";
+		};
 		2DB4311817EB788A004384C8 = {
 			isa = PBXGroup;
 			children = (
+				2D8992441814EA5D00889349 /* clasepunto */,
 				2D337DA017F5FC6400705669 /* pantallaViewController */,
 				2DB4314D17EB78F8004384C8 /* fondoTutosNav.png */,
 				2DB4314B17EB78ED004384C8 /* compass.png */,
@@ -230,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8992431814EA5600889349 /* punto.m in Sources */,
 				2DB4313117EB788B004384C8 /* main.m in Sources */,
 				2DB4313517EB788B004384C8 /* AppDelegate.m in Sources */,
 				2DB4313E17EB788B004384C8 /* ViewController.m in Sources */,

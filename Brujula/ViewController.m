@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "punto.h"
 
 
 @interface ViewController ()
@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     
     
 };
+NSMutableArray *arrayPuntos;
 
 - (void)viewDidLoad
 {
@@ -109,6 +110,8 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
 {
     
     double rumbo;
+    punto *miPunto;
+    
     CLLocation *location =[locations lastObject];
     NSDate *eventDate =location.timestamp;
     NSTimeInterval transcurrido=[eventDate timeIntervalSinceNow];
@@ -124,6 +127,17 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
         MKCoordinateRegion region;
         //  region.span = MKCoordinateSpanMake(0.1, 0.1);
         region.center = location.coordinate;
+        
+        miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
+        miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
+     //   miPunto.fecha = [NSNumber numberWithInteger:NSDate date];
+     //   miPunto.dato ="";
+        [arrayPuntos addObject:miPunto];
+        
+        
+        //guardo?? creo que si
+        
+        guardarAPlist miPunto;
         
         
     }
@@ -205,6 +219,13 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     
     
 }
+- (IBAction)iraCoche
+{
+    tipoAccion=irCoche;  // ¡r coche
+    [locationManager startUpdatingLocation];
+
+}
+
 
 
 - (IBAction)marcaCoche

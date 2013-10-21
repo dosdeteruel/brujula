@@ -31,5 +31,9 @@
     
 - (double) calculaRumbo:(double) lat longitud:(double) lon;
 - (double) calculaelRumbo:(CLLocation *)posicion;
+- (IBAction)iraCoche;
+- (IBAction)marcaCoche;
+- (IBAction)marcaPunto;
+
 
 @end
