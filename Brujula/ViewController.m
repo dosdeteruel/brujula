@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "punto.h"
+
 
 
 @interface ViewController ()
@@ -294,4 +294,13 @@ NSMutableArray *arrayPuntos;
     
     //    NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
 }
+
+
+- (void) guardarAPlist:(punto *)miPunto
+{
+
+
+}
+
+
 @end

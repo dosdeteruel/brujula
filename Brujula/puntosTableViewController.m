@@ -12,6 +12,9 @@
 
 @end
 
+NSMutableArray *zonasMutableArray;
+
+
 @implementation puntosTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -117,5 +120,60 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+- (void) cargardePlist
+{
+
+    
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+   
+    zonasMutableArray = [[NSMutableArray alloc]init];
+    
+    self.contentArray=[[NSMutableArray alloc]init];
+    
+    self.title = @"zonas";
+    
+    self.botonEditarBarButtonItem.enabled=NO;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    
+    
+    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
+    
+    NSLog(@"%@",fooPath);
+    
+    zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
+    
+    NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
+    
+    
+    
+     for( zonas *mirray in self.contentArray
+     
+     {
+     
+     mirray.nombre=[self.contentArray objectAtIndex:0];
+     
+     }
+     
+     
+     
+     [self.zonasMutableArray addObject:mirray];
+     
+     */
+    
+
+}
+
 
 @end

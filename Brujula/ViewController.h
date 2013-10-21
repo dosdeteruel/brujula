@@ -12,8 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
-
-
+#import "punto.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate>
 {
@@ -34,6 +33,6 @@
 - (IBAction)iraCoche;
 - (IBAction)marcaCoche;
 - (IBAction)marcaPunto;
-
+- (void) guardarAPlist:(punto *) miPunto;
 
 @end
