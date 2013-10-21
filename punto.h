@@ -12,7 +12,7 @@
 {
 
     NSNumber *x;
-    NSNUmber *y;
+    NSNumber *y;
     NSNumber *fecha;
     NSString *dato;
     NSString *zona;
