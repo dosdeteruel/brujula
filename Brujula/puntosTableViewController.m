@@ -159,6 +159,17 @@ NSMutableArray *zonasMutableArray;
     
   
      
+     {
+     
+     mirray.nombre=[self.contentArray objectAtIndex:0];
+     
+     }
+     
+     
+     
+     [self.zonasMutableArray addObject:mirray];
+     
+     */
     
 
 }

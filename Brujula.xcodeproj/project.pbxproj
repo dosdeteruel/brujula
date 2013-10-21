@@ -111,8 +111,6 @@
 				2D337DA017F5FC6400705669 /* pantallaViewController */,
 				2DB4314D17EB78F8004384C8 /* fondoTutosNav.png */,
 				2DB4314B17EB78ED004384C8 /* compass.png */,
-				2DB4314917EB78BA004384C8 /* QuartzCore.framework */,
-				2DB4314717EB78A4004384C8 /* CoreLocation.framework */,
 				2DB4312A17EB788B004384C8 /* Brujula */,
 				2DB4312317EB788A004384C8 /* Frameworks */,
 				2DB4312217EB788A004384C8 /* Products */,
@@ -130,6 +128,8 @@
 		2DB4312317EB788A004384C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DB4314917EB78BA004384C8 /* QuartzCore.framework */,
+				2DB4314717EB78A4004384C8 /* CoreLocation.framework */,
 				2DB4312417EB788A004384C8 /* UIKit.framework */,
 				2DB4312617EB788B004384C8 /* Foundation.framework */,
 				2DB4312817EB788B004384C8 /* CoreGraphics.framework */,
